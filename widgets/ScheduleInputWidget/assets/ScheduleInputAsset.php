@@ -6,7 +6,7 @@ use yii\base\Widget;
 
 class ScheduleInputWidget extends Widget
 {
-    // Параметры конфигурации виджета
+
     public $name;
     public $enableTimeZone = true;
     public $enableSpecialTime = true;
@@ -19,7 +19,7 @@ class ScheduleInputWidget extends Widget
      */
     public function run()
     {
-        return $this->render('schedule-input', [
+        return $this->render('scheduleInputWidget', [
             'name' => $this->name,
             'enableTimeZone' => $this->enableTimeZone,
             'enableSpecialTime' => $this->enableSpecialTime,
