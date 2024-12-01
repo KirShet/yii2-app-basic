@@ -1,6 +1,6 @@
 <?php
 
-namespace app\widgets;
+namespace app\widgets\ScheduleInputWidget;
 
 use yii\base\Widget;
 
