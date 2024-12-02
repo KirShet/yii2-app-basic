@@ -1,12 +1,12 @@
 <?php
 
-namespace app\widgets\assets;
+namespace app\widgets\assets\ScheduleInputWidget\assets;
 
 use yii\web\AssetBundle;
 
 class ScheduleInputAsset extends AssetBundle
 {
-    public $sourcePath = '@app/widgets/assets'; // Путь к ресурсам
+    public $sourcePath = '@app/widgets/ScheduleInputWidget/assets';
     public $css = [
         'css/schedule-input.css',
     ];
@@ -14,6 +14,7 @@ class ScheduleInputAsset extends AssetBundle
         'js/schedule-input.js',
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-    ];
+        'yii\web\JqueryAsset',
+        'yii\bootstrap5\BootstrapAsset',
+    ];  
 }

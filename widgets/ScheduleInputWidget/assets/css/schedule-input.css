@@ -1,0 +1,23 @@
+.schedule-widget {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.schedule-widget .schedule-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.schedule-widget .schedule-row input {
+    margin-right: 10px;
+    flex: 1;
+}
+
+.schedule-widget .add-row-btn {
+    margin-top: 10px;
+    display: inline-block;
+}
