@@ -72,5 +72,10 @@
             "type": "composer",
             "url": "https://asset-packagist.org"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "path/to/your/app/directory"
+        }
+    }
 }

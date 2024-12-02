@@ -3,6 +3,7 @@
 namespace app\widgets\ScheduleInputWidget;
 
 use yii\base\Widget;
+use app\widgets\ScheduleInputWidget\assets\ScheduleInputAsset;
 
 class ScheduleInputWidget extends Widget
 {
@@ -26,5 +27,11 @@ class ScheduleInputWidget extends Widget
             'enableProductionCalendar' => $this->enableProductionCalendar,
             'allowMultipleItems' => $this->allowMultipleItems,
         ]);
+    }
+
+    public function init()
+    {
+        parent::init();
+        ScheduleInputAsset::register($this->getView());
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\widgets\assets\ScheduleInputWidget\assets;
+namespace app\widgets\ScheduleInputWidget\assets;
 
 use yii\web\AssetBundle;
 
