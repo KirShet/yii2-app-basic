@@ -5,8 +5,8 @@
  * @var bool $enableProductionCalendar
  */
 ?>
-
-<div class="schedule-widget">
+<div class="container">
+    <div class="frame schedule-widget">
     <label>
         <input type="checkbox" name="<?= htmlspecialchars($name) ?>[enable_time_zone]" value="1" <?= $enableTimeZone ? 'checked' : '' ?>>
         Учитывать часовой пояс
@@ -28,6 +28,7 @@
     <!-- Скрытые поля для передачи данных -->
     <input type="hidden" name="<?= htmlspecialchars($name) ?>[work_times]" id="work-times-data">
     <input type="hidden" name="<?= htmlspecialchars($name) ?>[special_times]" id="special-times-data">
+    </div>
 </div>
 
 <script>

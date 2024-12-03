@@ -8,7 +8,7 @@ class ScheduleInputAsset extends AssetBundle
 {
     public $sourcePath = '@app/widgets/ScheduleInputWidget/assets';
     public $css = [
-        'css/schedule-input.css',
+        'css/schedule-input1.css',
     ];
     public $js = [
         'js/schedule-input.js',
