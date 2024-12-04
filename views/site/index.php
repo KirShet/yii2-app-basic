@@ -10,7 +10,7 @@ $this->title = 'My Yii Application';
                 echo ScheduleInputWidget::widget([
                     'name' => 'schedule',
                     'enableTimeZone' => true,
-                    'enableSpecialTime' => false,
-                    'enableProductionCalendar' => true,
+                    'enableSpecialTime' => true,
+                    'enableProductionCalendar' => false,
                     'allowMultipleItems' => true,
                 ]);

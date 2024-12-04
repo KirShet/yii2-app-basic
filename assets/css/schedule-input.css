@@ -188,7 +188,7 @@ body {
 
 .icon-margin {
     margin-left: 5px;
-    background-image: url('ScheduleInputWidget copy 2 img/help.png');
+    background-image: url('/images/help.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 20px;
@@ -261,7 +261,7 @@ body {
 .switch.active .switch-thumb {
     margin-left: 16px;
     background-color: #28B956;
-    background-image: url('ScheduleInputWidget copy 2 img/thumb.png');
+    background-image: url('/images/thumb.png');
     background-size: cover; 
     background-repeat: no-repeat;
 }
@@ -270,7 +270,7 @@ body {
     background: #74CF8A;
 }
 .abc1 {
-    background-image: url('ScheduleInputWidget copy 2 img//delete.png');
+    background-image: url('/images/delete.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 16px;
@@ -281,7 +281,7 @@ body {
     justify-content: center;
 }
 .abc2 {
-    background-image: url('ScheduleInputWidget copy 2 img/stylus.png');
+    background-image: url('/images/stylus.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 16px;

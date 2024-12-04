@@ -6,9 +6,9 @@ use yii\web\AssetBundle;
 
 class ScheduleInputAsset extends AssetBundle
 {
-    public $sourcePath = '@app/widgets/ScheduleInputWidget/assets';
+    public $sourcePath = '@app/assets';
     public $css = [
-        'css/schedule-input1.css',
+        'css/schedule-input.css',
     ];
     public $js = [
         'js/schedule-input.js',
@@ -17,4 +17,5 @@ class ScheduleInputAsset extends AssetBundle
         'yii\web\JqueryAsset',
         'yii\bootstrap5\BootstrapAsset',
     ];  
+    public $publishOptions = ['forceCopy' => true];
 }

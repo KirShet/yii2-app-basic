@@ -1,12 +1,12 @@
 $(document).ready(function () {
     const container = $('.schedule-widget'); // онтейнер для строк
-    const addButton = $('<button>')
-        .addClass('btn btn-primary add-row-btn')
-        .text('Добавить строку')
-        .on('click', function (e) {
-            e.preventDefault();
-            addRow();
-        });
+    // const addButton = $('<button>')
+    //     .addClass('btn btn-primary add-row-btn')
+    //     .text('Добавить строку1')
+    //     .on('click', function (e) {
+    //         e.preventDefault();
+    //         addRow();
+    //     });
 
     // для добавления строки
     function addRow() {
