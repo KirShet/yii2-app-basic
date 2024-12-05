@@ -291,3 +291,155 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+:root {
+    --color-bg: #ffffff;
+    --color-overlay: rgba(0, 0, 0, 0.5);
+    --color-border: #e3e3e3;
+    --color-text: #333333;
+    --border-radius: 8px;
+    --font-family: Arial, sans-serif;
+    --font-size-base: 14px;
+    --font-size-heading: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-text);
+    margin: 0;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden; /* Скрыто по умолчанию */
+    opacity: 0; /* Скрыто по умолчанию */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-wrapper {
+    width: 540px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.modal-wrapper h2 {
+    font-size: var(--font-size-heading);
+    margin-bottom: 10px;
+}
+
+.modal-wrapper p {
+    font-size: var(--font-size-base);
+    margin-bottom: 20px;
+}
+
+.calendar {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.month {
+    flex: 1;
+}
+
+.month h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.weekdays,
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 12px;
+}
+
+.days div {
+    padding: 5px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.days .selected {
+    color: white;
+    font-weight: bold;
+}
+
+.days .green-selected {
+    color: white;
+    font-weight: bold;
+}
+
+.time-selection-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: var(--font-size-base);
+}
+
+input[type="time"] {
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 5px;
+    font-size: var(--font-size-base);
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.add-btn,
+.cancel-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+}
+
+.add-btn {
+    color: #ffffff;
+}
+
+.cancel-btn {
+    color: #ffffff;
+}
+
+.open-modal-btn {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+}

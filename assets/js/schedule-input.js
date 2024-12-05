@@ -1,12 +1,12 @@
 $(document).ready(function () {
     const container = $('.schedule-widget'); // онтейнер для строк
-    // const addButton = $('<button>')
-    //     .addClass('btn btn-primary add-row-btn')
-    //     .text('Добавить строку1')
-    //     .on('click', function (e) {
-    //         e.preventDefault();
-    //         addRow();
-    //     });
+    const addButton = $('<button>')
+        .addClass('btn btn-primary add-row-btn')
+        .text('Добавить строку1')
+        .on('click', function (e) {
+            e.preventDefault();
+            addRow();
+        });
 
     // для добавления строки
     function addRow() {
@@ -32,7 +32,7 @@ $(document).ready(function () {
     }
 
     //  кнопка добавления
-    container.after(addButton);
+    // container.after(addButton);
 
 
         // Добавление рабочих часов
@@ -100,5 +100,34 @@ $(document).ready(function () {
         if ($(this).val()) {
             $(this).removeClass('error');
         }
+    });
+
+    const modalOverlay = document.getElementById('modal-overlay');
+    const openModalBtn = document.querySelector('.add-time-button');
+    const days = document.querySelectorAll('.days div');
+    const selectedDateSpan = document.getElementById('selected-date');
+
+    openModalBtn.addEventListener('click', () => {
+        modalOverlay.classList.add('show');
+    });
+
+    const cancelButton = document.querySelector('.cancel-btn');
+    cancelButton.addEventListener('click', () => {
+        modalOverlay.classList.remove('show');
+    });
+
+    days.forEach(day => {
+        day.addEventListener('click', () => {
+            document.querySelectorAll('.days .green-selected').forEach(selectedDay => {
+                selectedDay.classList.remove('green-selected');
+            });
+
+            day.classList.add('green-selected');
+
+            const month = day.closest('.month').querySelector('h3').textContent;
+            const dayNumber = day.textContent;
+
+            selectedDateSpan.textContent = `${dayNumber} ${month}`;
+        });
     });
 });
