@@ -8,52 +8,13 @@ $(document).ready(function () {
             addRow();
         });
 
-    // для добавления строки
-    function addRow() {
-        const row = $('<div>')
-            .addClass('schedule-row')
-            .append(
-                $('<input>')
-                    .attr('type', 'text')
-                    .attr('placeholder', 'Введите данные')
-                    .addClass('form-control')
-            )
-            .append(
-                $('<button>')
-                    .addClass('btn btn-danger remove-row-btn')
-                    .text('Удалить')
-                    .on('click', function (e) {
-                        e.preventDefault();
-                        $(this).parent().remove();
-                    })
-            );
 
-        container.append(row);
-    }
 
     //  кнопка добавления
     // container.after(addButton);
 
 
         // Добавление рабочих часов
-    $('.add-work-time').on('click', function() {
-        $('#work-time-container').append(`
-            <div class="work-time-entry">
-                <select name="schedule[work_time][][day]" required>
-                    <option value="1">Понедельник</option>
-                    <option value="2">Вторник</option>
-                    <option value="3">Среда</option>
-                    <option value="4">Четверг</option>
-                    <option value="5">Пятница</option>
-                    <option value="6">Суббота</option>
-                    <option value="7">Воскресенье</option>
-                </select>
-                <input type="time" name="schedule[work_time][][start_time]" required>
-                <input type="time" name="schedule[work_time][][end_time]" required>
-                <button type="button" class="remove-work-time">Удалить</button>
-            </div>
-        `);
-    });
 
     // Добавление особенных дней
     $('.add-special-days').on('click', function() {
@@ -102,32 +63,59 @@ $(document).ready(function () {
         }
     });
 
-    const modalOverlay = document.getElementById('modal-overlay');
-    const openModalBtn = document.querySelector('.add-time-button');
-    const days = document.querySelectorAll('.days div');
-    const selectedDateSpan = document.getElementById('selected-date');
 
-    openModalBtn.addEventListener('click', () => {
-        modalOverlay.classList.add('show');
+
+        const modalOverlay = $('#modal-overlay');
+    const selectedDateSpan = $('#selected-date');
+    const workTimeContainer = $('#work-time-container');
+
+    // Открытие модального окна
+    $('.add-time-button').on('click', function () {
+        modalOverlay.addClass('show');
     });
 
-    const cancelButton = document.querySelector('.cancel-btn');
-    cancelButton.addEventListener('click', () => {
-        modalOverlay.classList.remove('show');
+    // Закрытие модального окна
+    $('.cancel-btn').on('click', function () {
+        modalOverlay.removeClass('show');
     });
 
-    days.forEach(day => {
-        day.addEventListener('click', () => {
-            document.querySelectorAll('.days .green-selected').forEach(selectedDay => {
-                selectedDay.classList.remove('green-selected');
-            });
+    // Выбор дня в календаре
+    $('.days div').on('click', function () {
+        $('.days .green-selected').removeClass('green-selected');
+        $(this).addClass('green-selected');
 
-            day.classList.add('green-selected');
+        const month = $(this).closest('.month').find('h3').text();
+        const dayNumber = $(this).text();
 
-            const month = day.closest('.month').querySelector('h3').textContent;
-            const dayNumber = day.textContent;
+        selectedDateSpan.text(`${dayNumber} ${month}`);
+    });
 
-            selectedDateSpan.textContent = `${dayNumber} ${month}`;
-        });
+    // Добавление рабочей записи по нажатию на "Добавить"
+    $('.add-btn').on('click', function () {
+        const selectedDate = selectedDateSpan.text();
+        const startTime = modalOverlay.find('input[type="time"]').eq(0).val();
+        const endTime = modalOverlay.find('input[type="time"]').eq(1).val();
+
+        // Проверка заполненности времени
+        if (!startTime || !endTime) {
+            alert('Пожалуйста, заполните все временные поля.');
+            return;
+        }
+
+        // Добавление записи в контейнер
+        workTimeContainer.append(`
+            <div class="work-time-entry">
+                <span>${selectedDate} с ${startTime} до ${endTime}</span>
+                <button type="button" class="remove-work-time">Удалить</button>
+            </div>
+        `);
+
+        // Закрытие модального окна
+        modalOverlay.removeClass('show');
+    });
+
+    // Удаление рабочей записи
+    $(document).on('click', '.remove-work-time', function () {
+        $(this).closest('.work-time-entry').remove();
     });
 });
