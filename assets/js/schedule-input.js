@@ -3,6 +3,9 @@ $(document).ready(function () {
     const selectedDateSpan = $('#selected-date');
     const workTimeContainer = $('#work-time-container');
 
+    let firstDate = null; // Переменная для хранения первой выбранной даты
+    let secondDate = null; // Переменная для второй даты
+
     // Открытие модального окна
     $('.add-special-day-button').on('click', function () {
         modalOverlay.addClass('show');
@@ -13,21 +16,41 @@ $(document).ready(function () {
         modalOverlay.removeClass('show');
     });
 
+    // брос выборов
+    function resetDates() {
+        firstDate = null;
+        secondDate = null;
+        $('.days .green-selected').removeClass('green-selected');
+    }
 
     // Выбор дня в календаре
     $('.days div').on('click', function () {
-        $('.days .green-selected').removeClass('green-selected');
-        $(this).addClass('green-selected');
-    
         const month = $(this).closest('.month').find('h3').text();
         const dayNumber = $(this).text();
     
-        selectedDateSpan.text(`${dayNumber} ${month}`);
+        if (!firstDate) {
+            firstDate = `${dayNumber} ${month}`;
+            $(this).addClass('green-selected');
+            selectedDateSpan.text(`${firstDate}`);
+        } else if (!secondDate) {
+            secondDate = `${dayNumber} ${month}`;
+            $(this).addClass('green-selected');
+            const startDate = new Date(`${firstDate} 2024`);
+            const endDate = new Date(`${secondDate} 2024`);
+            const displayDates =
+                startDate <= endDate
+                    ? `${firstDate} — ${secondDate}`
+                    : `${secondDate} — ${firstDate}`;
+            selectedDateSpan.text(displayDates);
+        } else {
+            resetDates();
+        }
     });
 
     // Добавление рабочей записи по нажатию на "Добавить"
     $('.add-btn').on('click', function () {
         const selectedDate = selectedDateSpan.text();
+
         const startTime = modalOverlay.find('input[type="time"]').eq(0).val();
         const endTime = modalOverlay.find('input[type="time"]').eq(1).val();
         
@@ -55,6 +78,7 @@ $(document).ready(function () {
         workTimeContainer.append(newEntry);
         
         modalOverlay.removeClass('show');
+        resetDates();
     });
         
     // Удаление рабочей записи
@@ -63,6 +87,6 @@ $(document).ready(function () {
     });
 
     $('form').on('submit', function(event) {
-            event.preventDefault();
+        event.preventDefault();
     });
 });
