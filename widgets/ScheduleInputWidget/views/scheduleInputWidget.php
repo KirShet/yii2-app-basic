@@ -51,9 +51,9 @@
                 <div class="time-divider"></div>
                 <div class="time-box">19:00</div>
             </div>
-            <div class="special-days-group">
-                <div class="day"><div class="abc1"></div></div>
-                <div class="day"><div class="abc2"></div></div>
+            <div class="action-buttons">
+                <button type="button" class="edit-work-time" title="Редактировать"></button>
+                <button type="button" class="remove-work-time" title="Удалить"></button>
             </div>
         </div>
 
@@ -128,14 +128,14 @@
         const workTimesData = document.getElementById('work-times-data');
         const specialTimesData = document.getElementById('special-times-data');
 
-        document.querySelector('.add-work-time').addEventListener('click', function () {
-            const newWorkTime = document.createElement('div');
-            newWorkTime.innerHTML = `
-                <input type="time" name="work_times[]" class="form-control mb-2">
-            `;
-            workTimeContainer.appendChild(newWorkTime);
-            updateWorkTimes();
-        });
+        // document.querySelector('.    ').addEventListener('click', function () {
+        //     const newWorkTime = document.createElement('div');
+        //     // newWorkTime.innerHTML = `
+        //     //     <input type="time" name="work_times[]" class="form-control mb-2">
+        //     // `;
+        //     workTimeContainer.appendChild(newWorkTime);
+        //     updateWorkTimes();
+        // });
 
         document.querySelector('.add-special-time').addEventListener('click', function () {
             const newSpecialTime = document.createElement('div');
