@@ -70,7 +70,7 @@ $(document).ready(function () {
     const workTimeContainer = $('#work-time-container');
 
     // Открытие модального окна
-    $('.add-time-button').on('click', function () {
+    $('.add-special-day-button').on('click', function () {
         modalOverlay.addClass('show');
     });
 

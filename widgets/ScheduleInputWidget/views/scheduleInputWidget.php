@@ -122,38 +122,38 @@
     </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const workTimeContainer = document.getElementById('work-time-container');
-        const specialTimeContainer = document.getElementById('special-time-container');
-        const workTimesData = document.getElementById('work-times-data');
-        const specialTimesData = document.getElementById('special-times-data');
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     const workTimeContainer = document.getElementById('work-time-container');
+    //     const specialTimeContainer = document.getElementById('special-time-container');
+    //     const workTimesData = document.getElementById('work-times-data');
+    //     const specialTimesData = document.getElementById('special-times-data');
 
-        // document.querySelector('.    ').addEventListener('click', function () {
-        //     const newWorkTime = document.createElement('div');
-        //     // newWorkTime.innerHTML = `
-        //     //     <input type="time" name="work_times[]" class="form-control mb-2">
-        //     // `;
-        //     workTimeContainer.appendChild(newWorkTime);
-        //     updateWorkTimes();
-        // });
+    //     // document.querySelector('.    ').addEventListener('click', function () {
+    //     //     const newWorkTime = document.createElement('div');
+    //     //     // newWorkTime.innerHTML = `
+    //     //     //     <input type="time" name="work_times[]" class="form-control mb-2">
+    //     //     // `;
+    //     //     workTimeContainer.appendChild(newWorkTime);
+    //     //     updateWorkTimes();
+    //     // });
 
-        document.querySelector('.add-special-time').addEventListener('click', function () {
-            const newSpecialTime = document.createElement('div');
-            newSpecialTime.innerHTML = `
-                <input type="date" name="special_times[]" class="form-control mb-2">
-            `;
-            specialTimeContainer.appendChild(newSpecialTime);
-            updateSpecialTimes();
-        });
+    //     // document.querySelector('.add-special-time').addEventListener('click', function () {
+    //     //     const newSpecialTime = document.createElement('div');
+    //     //     // newSpecialTime.innerHTML = `
+    //     //     //     <input type="date" name="special_times[]" class="form-control mb-2">
+    //     //     // `;
+    //     //     specialTimeContainer.appendChild(newSpecialTime);
+    //     //     updateSpecialTimes();
+    //     // });
 
-        function updateWorkTimes() {
-            const workTimes = Array.from(workTimeContainer.querySelectorAll('input')).map(input => input.value);
-            workTimesData.value = JSON.stringify(workTimes);
-        }
+    //     // function updateWorkTimes() {
+    //     //     const workTimes = Array.from(workTimeContainer.querySelectorAll('input')).map(input => input.value);
+    //     //     workTimesData.value = JSON.stringify(workTimes);
+    //     // }
 
-        function updateSpecialTimes() {
-            const specialTimes = Array.from(specialTimeContainer.querySelectorAll('input')).map(input => input.value);
-            specialTimesData.value = JSON.stringify(specialTimes);
-        }
+    //     // function updateSpecialTimes() {
+    //     //     const specialTimes = Array.from(specialTimeContainer.querySelectorAll('input')).map(input => input.value);
+    //     //     specialTimesData.value = JSON.stringify(specialTimes);
+    //     // }
     });
 </script>
