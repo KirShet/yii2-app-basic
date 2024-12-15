@@ -330,11 +330,6 @@ body {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.modal-overlay.show {
-    visibility: visible;
-    opacity: 1;
-}
-
 .modal-wrapper {
     width: 540px;
     background: var(--color-bg);
@@ -512,4 +507,69 @@ button:hover {
 .remove-work-time::before {
     background: url('/images/delete.png') no-repeat center center;
     background-size: contain;
+}
+
+/* Модальное окно */
+.modal-overlay-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: flex;
+}
+
+.modal-content {
+    position: absolute;
+    width: 200px;
+    height: 140px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.modal-message {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #424242;
+    margin-bottom: 15px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel-btn,
+.delete-btn {
+    width: 90px;
+    height: 32px;
+    border-radius: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.cancel-btn {
+    background: #BABABA;
+    color: #FFFFFF;
+}
+
+.delete-btn {
+    background: #CA4738;
+    color: #FFFFFF;
+}
+
+.modal-overlay.show, .modal-overlay-message.show {
+    visibility: visible;
+    opacity: 1;
 }

@@ -119,4 +119,15 @@
                 <button class="cancel-btn">Отменить</button>
             </div>
         </div>
+</div>
+
+<!-- Модальное окно подтверждения удаления -->
+<div id="modal-overlay-message" class="modal-overlay-message">
+    <div class="modal-content">
+        <div class="modal-message">Вы хотите удалить это правило?</div>
+        <div class="modal-buttons">
+            <button class="cancel-btn">Отмена</button>
+            <button class="delete-btn">Удалить</button>
+        </div>
     </div>
+</div>

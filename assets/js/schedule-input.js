@@ -1,10 +1,13 @@
 $(document).ready(function () {
     const modalOverlay = $('#modal-overlay');
+    const modalMessage = $('.modal-overlay-message');
     const selectedDateSpan = $('#selected-date');
     const workTimeContainer = $('#work-time-container');
 
     let firstDate = null; // Переменная для хранения первой выбранной даты
     let secondDate = null; // Переменная для второй даты
+
+    let workItemToDelete = null;
 
     // Открытие модального окна
     $('.add-special-day-button').on('click', function () {
@@ -14,6 +17,7 @@ $(document).ready(function () {
     // Закрытие модального окна
     $('.cancel-btn').on('click', function () {
         modalOverlay.removeClass('show');
+        modalMessage.removeClass('show');
     });
 
     // брос выборов
@@ -83,7 +87,16 @@ $(document).ready(function () {
         
     // Удаление рабочей записи
     $(document).on('click', '.remove-work-time', function () {
-        $(this).closest('.days-wrapper').remove();
+        workItemToDelete = $(this).closest('.days-wrapper');
+        modalMessage.addClass('show');
+    });
+
+    // Подтверждение удаления
+    $('.delete-btn').on('click', function () {
+        if (workItemToDelete) {
+            workItemToDelete.remove();
+        }
+        modalMessage.removeClass('show');
     });
 
     $('form').on('submit', function(event) {
